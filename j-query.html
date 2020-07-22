@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head> 
+	<meta charset="UTF-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Javascript Notes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+ 
+<body>   
+
+<h1>JQuery</h1>
+<p>Notes</p>
+
+<iframe width="758" height="426" src="https://www.youtube.com/embed/-zqeDs1qJg8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>An introduction to jQuery
+Up until now, you have been coding in JavaScript, which is the coding language of the web.
+When you interact with a web page or see anything beyond a basic CSS animation, it is done with JavaScript.
+However, a relatively simple animation will have a long complex piece of JavaScript code.
+The most commonly used web events or animations have all been coded and placed in libraries.
+The most widely used of those libraries is jQuery.
+With jQuery, you call a jQuery method with one line of code that has many lines of JavaScript wrapped within it.
+So in a bootcamp environment, using libraries is a quick way of getting interactive, visually rich web pages.
+So within this lesson, we will cover linking to the jQuery library, using selectors, changing HTML CSS, and writing scripts.
+This will allow you to make interactive buttons to show and hide elements, highlight elements, and update the contents of elements.
+The learning outcomes are: find HTML elements, change their CSS, change their content, listen to user interaction, and respond to user interaction.
+</p>
+
+
+<iframe width="758" height="426" src="https://www.youtube.com/embed/g0GWpckFfCo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<h2>what is JQuery</h2>
+<p> jQuery's motto is "Write less, do more."
+JavaScript is the language of the web.
+It interacts with HTML source code and can be used to create interactive effects within web browsers.
+However, JavaScript can be a little complicated and tricky to pick up, especially for beginners.
+It can take a while to become familiar with its intricacies.
+Although there are more lines of code written in JavaScript than in any other language, it is rarely used to teach programming for beginners due to its complexities.
+This is where jQuery comes in.
+jQuery makes it easier to use JavaScript on your website by taking common tasks that require many lines of code and wrapping them up so as to create a single line of less complex code.
+jQuery is the most popular JavaScript library in use today by far.
+It may seem a little strange to learn how to use a library instead of the language itself, but in the case of jQuery, there are some good reasons for this.
+jQuery is cross browser compatible.
+It also has simpler syntax than JavaScript and provides a great introduction to web coding.
+So what will we use jQuery for?
+Here's an example of an accordion, which is something we can make with jQuery.
+We can show and hide elements, highlight elements, and update the contents of elements.
+So in order to do these tasks, we need to learn how to find the HTML elements, change their CSS, change their content, listen to user interaction, and respond to user interaction.
+To download jQuery, we can go to the download tab here.
+In order to use jQuery in your webpage, you must include the jQuery.js file in between the <head> tags of your web page.
+There are a few versions to choose from.
+You should choose the latest, uncompressed development version for use with this lesson.
+So you can download that file now.
+There's another technique that many developers use today.
+Instead of hosting the jQuery source code on your own server, you can link to it remotely using a CDN.
+A CDN is a content delivery network.
+There is an advantage to using this method in that there is a good chance your browser already has the jQuery cached, so it does not need to download it again.
+All you need to do is just copy this script tag and put it in the <head> tag of your webpage.
+The downside, of course, is if you have no internet access, you have no jQuery available.
+So again, if you want the script tags, you just copy the uncompressed version.
+The other thing we'll need for this lesson are some pre-prepared HTML files.
+So you can download them here.
+And we will be using these in the upcoming units to see how to change HTML and add to HTML.
+</p>
+
+
+<h2>JQuery Selectors</h2>
+
+<iframe width="758" height="426" src="https://www.youtube.com/embed/H8C9iyndE9Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>Selectors and jQuery work in a very similar fashion to CSS selectors.
+We can select elements by type, ID, class, and many more which we will look at during this lesson.
+Let's start by opening the sample site in the lesson folder.
+Take a few minutes to familiarize yourself with the code.
+jQuery is usually written in a separate file to the HTML and then linked, like an external CSS file.
+However, you can also use Chrome developer tools to write jQuery statements direct in the browser.
+So we're going to give that a try.
+The element selector in jQuery selects all elements that have the same element tag name.
+This can be useful for applying a style to a particular group of elements, for example, all divs or all links which are <anchor> tags.
+So just as in CSS, as you would link all style elements with a curly bracket,"{}", we can do the same in jQuery.
+So let's open Chrome developer tools and click on "Console".
+Here we can type commands direct into the console.
+For example, we can start with $("a").
+And what that does is that would select all anchor link elements.
+This is analogous to the {"a"} in CSS.
+The dollar symbol is shorthand for the word jQuery.
+So we could equally have written it like this: jQuery("a")
+However, let's stick to the shorthand and use the $.
+To use a class element, we would use dot notation, similar to CSS.
+Here, we are selecting all ".card_image" class elements.
+To select an element using its ID, we use the #.
+Let's select the logoNav ID.
+jQuery allows you to traverse the DOM tree and select elements based on their parent element.
+There are two variations.
+The first variation will only match elements which are direct child to parent elements.
+So here, we are returning all anchor link children that are direct children of a <p> element.
+The second variation will match all descendents of the parent, i.e. children, and everything below.
+For the selector to return all descendents of a parent, regardless of whether directly related or not, we use the following syntax: ("p a").
+In this case, there are no anchor children of paragraph parents, so we will look at other elements.
+Here, we have "ul" as the parent and "li" as the child: ("ul>li").
+Here, it gives a list of all those <li> elements.
+If we want to give all <li> elements, regardless of whether directly related or not, we use this syntax: ("ul li").
+Pseudo selectors can also be used, just as they were in CSS.
+This will select the first anchor on the page: ("a:first").
+And this will get the last anchor on the page: ("a:last").
+And here, we can select all of the <h> elements on the page, h1s, h2s, h3s, and so on: ("header").
+Now that you've seen the syntax, go to the challenge, and use this technique to select various items from this webpage.</p>
+
+
+<h3>Using JQuery like you select CSS </h3>
+
+<p> note: $ is just short hand for $ JQuery - you can use either or</p>
+<pre>
+$( '#header' ); // select the element with an ID of 'header'
+$( 'li' );      // select all list items on the page
+$( 'ul li' );   // select list items that are in unordered lists
+$( '.person' ); // select all elements with a class of 'person'
+</pre>
+
+
+<h2>Changing HTML/CSS With JQuery</h2>
+
+<iframe width="758" height="426" src="https://www.youtube.com/embed/PAYbk82fG2Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p> Changing HTML or CSS with jQuery
+Selecting is wonderful, but what we really want to do is change our selections, such as colors and fonts, or perhaps make them disappear.
+There are a number of ways to change the properties of an element.
+One of these ways is to modify the CSS using a function.
+The function we will look at is the ".CSS" function.
+There are two ways to use this function.
+We can query a style property or set the style property.
+To query a style property, we pass in the property to the function as shown here.
+Here, we see the background color is white.
+Let's have a look at the font.
+And the font is Roboto with the back up font of sans-serif.
+So this queries the CSS of any element.
+However, if we want to change the CSS of any element, we add in a second parameter with a comma to separate the two.
+So this will change the color of the font of any LI element to red.
+And there we go. They've changed to red.
+Let's try this with another element, in this case an H2.
+We're going to change the text-decoration to underline.
+And we can see HTML, MySQL, and Python are now all underlined.
+We can actually see this using the chrome developer tools.
+You can see the inline style of color red has been added to each <li> element, and each H2 has "text-decoration:underline" added as an inline style.
+Remember that we don't like using inline styles, as it mixes content and styling on the same section of a page.
+Content and styling should be separated in their own sections wherever possible, and we will do this in future lessons.
+So let's try another example here.
+I'm going to add a border to the ul>element.
+This border will be solid, 1px
+And we see now that our lists have a 1px border around them.
+So what about changing HTML content with jQuery?
+So like the ".CSS" function, there is also an HTML function which can retrieve an element's HTML.
+That is the ".HTML" function.
+So we use it as follows.
+Here, we will retrieve all the HTML from "#my_footer".
+We can see there we have a paragraph with copyright information written as text.
+Let's try this for the whole body of the HTML document.
+And there we have all the HTML from the entire webpage.
+So just as we were able to replace CSS, we can also replace HTML.
+We can even place tags inside the new HTML, for example an H1.
+The paragraph that had been there previously is now overwritten with an H1.
+If we just wanted to replace the text content of an element, we would use the ".text" function.
+Now that  is just replaced by text.
+So jQuery is very powerful at manipulating elements.
+So we can change the content and style of an entire webpage.
+We can also insert new elements by adding them to the DOM, or removing elements from the DOM.
+So using the ".append" method, we can add content onto the end of an existing selected HTML element.
+So if there was an element with the ID "myElement", this paragraph will be appended on the end.
+Let's try that with the "my_footer".
+We will append copyright 2017 on to the end of the text that we've previously put in that "my_footer" ID.
+And you can see it appears there at the top right of the page.
+There are also methods, for example, to remove and empty, which can be used to remove stuff from the page.
+So now if you go to the challenge, you can try some of these methods.
+ </p>
+
+
+
+</body>

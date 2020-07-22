@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head> 
+	<meta charset="UTF-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Javascript Notes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+ 
+<body>   
+
+<h1>Javascript to JQuery</h1>
+<p>Notes</p>
+
+<h2>JavaScript in the browser</h2>
+<p>API: Application Programming Interface</p>
+
+<iframe width="758" height="426" src="https://www.youtube.com/embed/WuaeQyy0SRk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>JavaScript in the browser.
+Your web browser is where all of your JavaScript functionality is executed.
+Within the browser environment are a number of functions you can make use of to augment your users' experience .
+These are called programming APIs, and understanding them is crucial to developing in the frontend.
+Hi, I'm Niel McEwen, a developer at Code Institute.
+In this section of the course, we're going to learn about jQuery.
+jQuery is an extremely popular library that makes writing JavaScript in the browser quick and easy.
+However, before we learn about it, we're going to first talk generally about writing JavaScript in the browser.
+We had a thorough introduction to the JavaScript programming language in the stream 0 JavaScript fundamentals course.
+Here, we learned all about its core features and principles, as well as how to write and modify JavaScript scripts.
+But programming languages aren't much use without somewhere to run.
+When programming with more traditional languages like C, C++, or Java, we would write our source code locally on our machine and then use an application called a compiler to create an output file that we could click and run.
+But the web is different.
+We need to be able to write our source code, put it on the server, and then send it over a network to someone else for them to execute.
+The place where our JavaScript code is getting executed is the web browser.
+Within every browser, there's a piece of software that runs the JavaScript files our web page requests.
+This is the JavaScript engine.
+Most browsers have their own JavaScript engine implementations.
+Chrome uses V8, Firefox use SpiderMonkey, Safari uses javascriptcore, otherwise known as nitro, and internet explorer uses Chakra.
+So JavaScript the language was created for the netscape web browser back in the 1990's as a way for developers and designers to create more dynamic websites.
+It was created in a very short time period and initially had many, many shortcomings.
+In the beginning, every browser vendor had their own implementations and interpretations of the language, making it volatile and difficult to develop with.
+Over time, the need for standardization of these implementations was required.
+This became known as the ECMA standard.
+This is an organization that steers the direction of the JavaScript language.
+Over the last 20 years, JavaScript has improved beyond recognition, and each new version of the language brings new features.
+These new features have to be integrated into each browser and each JavaScript engine.
+Again, they're not always implemented at the same time or at the same pace.
+When these new features are integrated, we, the developers, need a way to make use of them when writing code.
+Generally, this is done via APIs, or Application Programming Interfaces.
+An API is used to allow two pieces of code to talk to each other, as well as defining exactly how they do this.
+For example, imagine we are developing a website for booking tickets.
+We want to send the user a text message when they successfully book.
+We don't have the infrastructure to build this texting system ourselves, but we know of a service that does.
+This other service has developed code that can send out text messages at speed.
+Luckily for us, they have also exposed some of this code so that other people can connect their code to it.
+In particular, there's a function called SendText that allows us to provide a phone number and the message to be sent.
+This is an example of an API.
+When using this API from our own application, we don't need to know the details of how they have created their system.
+We just need to know that there's a function that we can call from our code called sSndText ,and it does the job.
+The same applies to the browser.
+The browser provides a number of different APIs that we can work with when developing our frontend applications to do a variety of things.
+For example, geolocation.
+This is where we can request the users location through the browser.
+File uploads: where we can allow the user to upload files via the browser.
+Web camera interaction: where we can request access to the user's camera.
+Notifications: where we can request access to the users notification system.
+Audio/video: where we can play videos and audio via the user's browser.
+Local storage: where we can store text and other information within the user's browser without needing access to their operating system.
+Ajax: where we can make extra requests to web servers outside the usual page loading experience.
+As well as these more interactive APIs, there are also a set of APIs for doing more commonplace interactions you may want to achieve on your websites and applications.
+For example, you'll want to be able to change the color of the text dynamically, move things around the page when a user clicks, and hide or show parts of the page depending what the user does.
+These APIs that are concerned with how we, the developers, interact with the actual contents of the HTML web page are part of something called the DOM, or the Document Object Model.
+We will refer to the DOM from now on.
+This is a part of the browser that deals with allowing us to interact with what the user sees on the screen.
+It's really important to note here that all of the APIs we mentioned, including the DOM, are a part of the browser, not part of the core JavaScript programming language itself.
+Once we conceptually separate these two, we'll find it much easier to understand the JavaScript code we're looking at.
+In the next unit, we're going to have a look at the DOM in more detail to understand how it works.
+</p>
+
+<h2>The DOM</h2>
+
+<iframe width="758" height="426" src="https://www.youtube.com/embed/zaAajYUZVZ8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>The DOM
+In the last unit, we introduced the concept of an API.
+One of the most important APIs that we need to understand when developing on the frontend is the DOM, or the Document Object Model.
+The DOM can be an intimidating and bewildering topic to a lot of new developers, but it doesn't have to be.
+At its core, it's a simple idea.
+When the browser loads a new HTML document that has been requested from a server, remember that it's just opening a plain text file.
+It doesn't know anything about that file. It just sees text to begin with.
+The browser needs a way to make sense of this text file and turn it into the web page that we will eventually see in our browser window.
+It needs to break down every element that we've included in our HTML file and relate them to each other so that it knows that, for example, the h1 header element is within the header element.
+Furthermore, it needs to allow the developer who created the web page to also interact with these elements within their page, so they can allow their users to change things dynamically.
+The DOM, or Document Object Model, describes how web browsers should implement these requirements.
+More precisely, the DOM does two things.
+Firstly, it defines how our HTML documents are represented within the browser.
+Secondly, it defines how we can interact and manipulate this HTML representation dynamically.
+Representation
+To represent their documents internally, the browser creates something called a tree.
+A tree is a data structure that allows us to represent hierarchy.
+It's made up of a number of nodes where each node has a single parent and, optionally, a number of children.
+In the DOM tree, each node of the tree corresponds to one of our HTML elements.
+At the very top of the tree is the root node.
+In our case, this root node represents our entire HTML file, and it's called the document node.
+Manipulation
+So the DOM tree represents our HTML document, but how do we interact with it?
+The DOM also defines a long list of functions that we can use when developing to manipulate the DOM tree.
+For example, we can create new elements and insert them to the DOM tree and, therefore, into our page.
+We can remove elements from the tree dynamically.
+We can search for existing elements in a variety of flexible ways. For example, we might want to find all <li> elements on our page.
+When we find the elements we are looking for, we can then manipulate them.
+For example, we can change their CSS styling or their position on the page.
+There are a large number of operations you can perform on the DOM tree.
+So how exactly are we performing these operations?
+We perform them via JavaScript function calls from the browser.
+It's important to note here that the DOM is in JavaScript and that JavaScript isn't the DOM.
+The developers in Google, Microsoft, and Mozilla then create implementations of this DOM standard in their browsers and offer a library of JavaScript functions that can be called in JavaScript engines to manipulate the DOM.
+Furthermore, like we mentioned in the last lesson, these function calls are not a core part of JavaScript.
+They are only relevant in the browser ecosystem.
+With all of that in mind, in the next unit, we're going to see how we actually interact with the DOM in the browser to change our page.
+</p>
+
+
+<h2> Manipulating The DOM
+</h2>
+
+<iframe width="758" height="426" src="https://www.youtube.com/embed/zJh_oigeI9k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>Manipulating the DOM
+So we click on the lesson files link.
+It will take us to GitHub.
+And we can download a zip of the files that we're going to need.
+We can extract those files and save them on our PC.
+And what we'll do now is we'll open a new workspace.
+Give it the name "manipulating-the-dom".
+And it's a blank workspace.
+Now if we go to file, we can upload local files.
+And we will select the index file from our unzipped files.
+And we're going to have to create a GS directory for our JavaScript.
+And then, again, we are going to upload local files.
+And this time we're going to select the JavaScript files. We have two of them there.
+And we're going to open up GS.
+And this is a good time just to do our own git.
+So do a "git status".
+We'll see this is not a git repository, so you're going to have to do a "git init".
+Then "git add" and "git commit".
+So in the last unit, we learned what the DOM is.
+In this unit, we'll dive into the browser and play around.
+So within this Cloud9 workspace, we have a small Bootstrap web page that we're going to experiment with.
+So all we have in this is a navigation bar and a couple of links in an article with a large callout section or the paragraph below that and some standard text.
+So you can see that displayed on the page now.
+So in a previous Bootstrap lesson, you saw how to create an external CSS file to house all of the custom CSS rules.
+Writing JavaScript in the browser is no different.
+So we're going to create an empty JS file, or JavaScript file.
+And then you link that, of course, at the bottom of your HTML file.
+So we have a pre-written console.log in here.
+And if you actually look in the developer tools, when we reload the page, the browser fetches and processes that JavaScript file and any expressions that we've included. So we've just printed out "Hello World" here.
+This is the approach that we'll take when writing our own JavaScript files further down the line.
+But when you actually just want to experiment, you can actually write JavaScript expressions directly into the Chrome developer tools.
+So let's just try that.
+So all we've done here is write "console.log('Hello World').
+And, as you expect, it prints out Hello World.
+So we've just written the expression directly into the Chrome browser. It's a very useful way of running JavaScript without having to set up any sort of environment.
+So we can start experimenting here with the DOM directly.
+So we type "document" in here.
+It's the root node of the tree, the DOM tree that we learned about in the last lesson.
+We're able to dynamically see exactly what this document element is.
+And it's actually reflected within our page.
+So as we typed "document", a large number of functions became available for us to use.
+And you can see that we'll auto complete these functions.
+And these are all functions that DOM has made available to us, and, again, this is what we spoke about in the previous unit.
+So now we're going to have a link for an <article> element.
+So we have an <article> element within our HTML.
+And we are going to try and access it through the DOM.
+So I'm just highlighting that <article> element there.
+So we're going to create this variable "article".
+And we're going to get our element by ID in this case.
+So the ID was 'home-page'.
+This allows us to select elements with particular CSS IDs.
+So it's returned the article within the HTML.
+So that's how you do a DOM search.
+You don't have to search by ID. You can search by other attributes.
+For example, we can search by tag name "section".
+This returns all the section elements on the page.
+Now you can see there's something a little different here. It's returned us a list.
+There are two elements within the list. One is a Jumbotron, and one is the text directly below that.
+Another thing we can look at is returning the elements by class name.
+It's just another way of searching the DOM.
+So in this case, it's giving a list of <p>, or paragraph, tags.
+And there is only one <p> element in this case.
+And it contains the text within the page which is manipulating the DOM with JavaScript.
+So these are three different ways of searching for things in the DOM.
+There's actually a more flexible and versatile way that we can address all three of those in one function.
+That's something called query selector.
+Previously, we searched for a tag using get element by tag name.
+And now we're doing the same thing but using query selector.
+And we're, again, looking for the section tag.
+And it's returned the same list.
+So query selector can encapsulate the other three functions we previously saw and allow us to fetch things in the DOM in a much more flexible fashion.
+So here, again, we see in the sections we have jumbotron and the content, the text.
+Again, we use query selector.
+This time with a class name 'lead'.
+And this is the same paragraph that we looked at before.
+And now we can do "lead.textContent".
+And it's going to return to me the actual string of text that I've included within my <p> tag in the HTML document.
+So this is an attribute that's within the node.
+There are a number of different attributes within the node.
+So we're going to go back now and search for the article element that we looked at before.
+So going by article search by ID 'home-page' again.
+We could have done it another way. In this case, we're just choosing ID.
+And we can see there that the article contains the two children, jumbotron and section content.
+And we can also do the other way around. We can look at a parent of an article, and we will see there that the parent of the article is, of course, the container.
+So that's two ways of searching the DOM tree, again, node by node by parent and by child.
+Now we're going to have a look at siblings.
+So what's the tree element that is beside my article?
+In this case, there isn't one simply because the article's alone within container.
+So we have a look at the children.
+Then we will see that there are two children in this case.
+So if we check for siblings, the Jumbotron has a sibling, which is content.
+And, of course, vice versa, content's sibling is Jumbotron.
+So in addition to searching the DOM, we can actually create new elements.
+So we're going to create a new list element there.
+So be aware that we haven't created it.
+It's just sitting in the memory of the browser. It's not actually in the HTML page. It's just sitting as a variable within memory.
+So we're going to add it later to the DOM tree.
+But right now it's not actually in there, so we're going to add a background color, pink in this case.
+I'm also going to create an anchor link to place within that list item.
+Again, this is in memory. We're not actually doing anything to the DOM tree.
+So we're just manipulating some of the CSS behind this node.
+So we can also add a text attribute of "Four" there.
+And we're giving it a color of 'white', so it'll be white text.
+And there were appending to that anchor tag.
+And we can see now that inside that list element, we have a background color of pink and an anchor with a style of white.
+And there's the text of "Four" within that.
+So we're going to get the elements by tag name. We're going to use 'ul'.
+'ul' as a navigation bar at the top.
+And we can see "ul.nav.navbar-nav" there.
+And there are our three uls, 1,2, and 3.
+And now we're going to use the append to actually add that fourth one on. So you can see now that pink one with the white text has been added on to the end.
+So it's now live in the browser.
+Previously, it was just in memory, and now we've placed it into the browser.
+So now we're going to manipulate the DOM tree a little bit more.
+I'm going to get hold of that 'ul' element.
+And we're going to try and take the 4th element, the pink element that we have there, and we're going to try and move it.
+We're going to shift it all the way up to the top of the menu, so it's going to go from 4th place all the way up to 1st place.
+So here we're just grabbing the list, the first one and the last one.
+And we're going to ask the DOM to place the last element in front of the first element.
+So we're using the insertBefore method on the 'ul'.
+And you can see there that the pink four has now moved from the last place to the first place.
+So we've used JavaScript to manipulate how HTML is rendering in the browser, and that's the entire purpose.
+You can see it's quite a tedious process. It's becoming more and more tedious and more complex the more actions we try and undertake.
+So at the moment, what we really want to do is change all of our list elements 1, 2, 3, 4 to a pink background.
+We're having to use a for loop because all of our list elements are in a loop.
+So we'd have to go through 1, 2, 3, 4 and change the background on each one manually.
+That's quite a long process.
+It'd be much better in a different way of doing this. Some way of saying, find me all the lis within a ul, remove a class, and then add a class.
+So this is pseudocode here, but something along the lines of this.
+Then we're removing a class and adding a second class.
+And then finally changing the CSS.
+This would be a much better way of interacting with the DOM.
+Currently, we're not able to do this. This is pseudocode. You can see there, an error.
+We're limited by how we can interact with the DOM, and that's one of the shortcomings of trying to manipulate the DOM and use javascript in the browser with this native capacity.
+Some of the function calls are non-intuitive. There are a lot of different ways to do particular things.
+Even at the start of the video, you saw there were multiple ways to get elements: by tag name, by ID, by class.
+There's a multitude of different ways to do essentially the same thing within the DOM.
+It'd be ideal if we had some sort of helper or library that could make these DOM manipulations a little bit more straightforward.
+And it turns out, of course, there is.
+We've already mentioned it. It's called jQuery.
+jQuery is the library that makes a lot of these repetitive tasks like finding things within the DOM, moving up and down the DOM, moving from one node to the other, changing the CSS, changing the background.
+It makes all these tasks a lot more straightforward and simple.
+So in the next couple of lessons, we're going to move on to jQuery and see how we can do a lot of these actions that we've been currently trying to do with a more intuitive syntax.</p>
+
+<h2></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
