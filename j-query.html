@@ -175,6 +175,65 @@ There are also methods, for example, to remove and empty, which can be used to r
 So now if you go to the challenge, you can try some of these methods.
  </p>
 
+<h2>jQuery Selectors</h2>
 
+<pre> $('Element').html('HTML element');</pre>
+<pre> $('Element').text('Text element');</pre>
+
+<pre> $('Element').append('HTML to append');</pre>
+
+
+<h3>CSS</h3>
+
+<h3>to find the value of a css element</h3>
+<pre> $('h1,li, ul etc').css('background-color',);</pre>
+
+<h3>to change a css element</h3>
+<pre> $('h1,li, ul etc').css('color', 'red');</pre>
+
+
+<h3>Class and ID </h3>
+<p>work the same way we use use the css selectors, for example</p>
+
+<pre>
+$('#my_ID').css('change-attribute', 'to-this'); 
+</pre>
+
+
+<h2>target the paragraphs challenge</h2>
+<p>solution</p>
+
+<pre>$("p").text("All Changed");</pre>
+
+<h2>getter and setter challenge</h2>
+
+<pre>$('p').append('<span>This is appended span code</span>'); // append a span
+$('a').remove(); // target all anchors and remove.
+$('div.module-2').empty(); // target all divs with a class of .module-2 and empty.
+</pre>
+
+<h2>jQuery challenge 3 -</h2>
+
+<pre>
+let fontFamily = $("p").css("font-family");
+$("h1").text(fontFamily);
+$(".card-panel").css("background-color", "green");
+
+</pre>
+
+
+<h2>writing our first jQuery Script</h2>
+<p>Putting jQuery code in a script in a js file
+
+</p>
+
+<p>Write your jQuery code in a .js file and add a script tag in html referencing it below the script tag referencing jQuery</p>
+
+<h2>Add odd and even classes</h2>
+<p>solution</p>
+<pre>$('tr:odd').addClass('odd');
+$('tr:even').addClass('even');</pre>
+
+<p>what this does is take table odds and evens and applies the class to them</p>
 
 </body>
