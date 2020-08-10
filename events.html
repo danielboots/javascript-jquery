@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head> 
+	<meta charset="UTF-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Javascript Notes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+ 
+<body>   
+
+<h1>Events</h1>
+<p>Events in JQuery</p>
+
+<p> an event triggers an interation allowing the user of a wrbsite to trigger a change in css or html</p>
+
+
+<p>we us it by </p>
+
+<pre>$("p").click(function(){ // When I click on <p> run this code });</pre>
+
+<h2>setting up the project</h2>
+
+<iframe width="733" height="412" src="https://www.youtube.com/embed/tHSL21geuoQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+<h2>events in JQuery challenge 1 </h2>
+
+<pre>$('p').click(function(){
+  $('p').css('color','red');
+  
+});
+
+$('h2').hover(function(){
+  $('h2').css('background','lightblue');
+});
+
+$('.card-panel').mouseenter(function(){
+  $('body').css('background-color','black');
+});
+
+$('.card-panel').mouseleave(function(){
+  $('body').css('background-color', '#e1e2e2');
+});</pre>
+
+
+<h2>animation with JQuery</h2>
+<p>JQuery effects are how the changes to html appear visibly to the user</p>
+<p>Effects such as hide, show, slide, and fade can be implemented over a specified time resulting in animation</p>
+<p>How do you use it?
+
+.show(1000); will show an item in 1000 milliseconds</p>
+
+<iframe width="935" height="526" src="https://www.youtube.com/embed/FKmDv0k_wJk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h3>transcript</h3>
+<p>Animation with jQuery
+Up to now, we have seen simple animations in CSS.
+jQuery supports even more powerful animation features out-of-the-box.
+The ability to fade elements in and out of visibility or to slide elements can be done with a simple line of code.
+All the effects can be implemented over a specified time, resulting in animation.
+The duration of the effect may specify the milliseconds, or use one of three preset timings: fast, medium, or slow.
+So let's look at some of these effects.
+The show() method can show a hidden element, such as a div or an image element.
+Here's a simple example.
+Here, we're passing a speed to the show() method.
+It tells jQuery how fast to show the element.
+So we have three predefined: slow, medium, and fast; or a number of milliseconds, in this case 1000.
+An element can be hidden using the hide() method, or, with CSS, using display:none.
+The hide() method makes an element vanish.
+It's the opposite of show().
+And here are some of the speeds we can choose from: slow, medium, fast, or, again, a preset millisecond time.
+Let's have a look at some of these examples on jQuery.
+If we have a look at show(), as soon as we press this button, we will see the paragraph.
+And with hide(), as soon as we press the button, we will hide the paragraph.
+The jQuery toggle() function is very useful.
+It toggles the visibility of an element.
+Therefore, if the element is hidden, it will be shown, and, vice-versa, if it is shown, it will be hidden.
+It works just like an on/off button.
+If you think about using the toggle() function, it does not make much sense to use the function on an element itself.
+When the toggled element becomes hidden, you cannot click on it again to make it visible.
+So what we usually do is click on an element, such as a button, which toggles a different element.
+The slideDown() function slides down a hidden HTML element, so it becomes visible.
+As with the show() and hide() functions, you can also set the speed as a parameter to the function.
+The opposite to the previous function is the slideUp() function, which hides a visible element by sliding it up.
+The slideToggle() function shows an element if it's hidden, or hides it if it's visible.
+The fadeIn() function fades in the hidden element.
+Like with the show and hide functions, you can also set the speed as a parameter to the function.
+The fadeOut() function fades out a visible element.
+The fadeToggle() function shows an element if it's hidden, or hides it if it's visible.
+The fadeTo() function enables you to fade an HTML element partially in or out, thus making it transparent.
+You pass two parameters: the speed, which is in milliseconds; and the opacity, which is between zero and one, which tells you how much you wish to fade the element.
+0 is fully transparent (hidden) and 1 is fully opaque (shown).
+Now try some of the challenges.
+</p>
+
+
+<h2>jquery effects challenge 1 </h2>
+
+<pre>$('#card-panel-1').click(function(){
+  $('#card-panel-1').hide('slow');
+});
+
+$('#card-panel-2').click(function(){
+  $('#card-panel-2').hide('medium');
+});
+
+$('#card-panel-3').click(function(){
+  $('#card-panel-3').hide('fast');
+});
+
+$('#card-panel-4').click(function(){
+  $('#card-panel-4').hide(3000);
+});</pre>
+
+<h2>jquery effects challenge 2 </h2>
+<p> toggle how to use: .show(1000);</p>
+<p>Your challenge is to use the JQuery toggle() method.
+</p>
+
+<pre>$('#button-card-1').click(function(){
+  $('#par-1').toggle('slow');
+  
+});
+
+$('#button-card-2').click(function(){
+  $('#par-2').toggle('medium');
+  
+});
+
+$('#button-card-3').click(function(){
+  $('#par-3').toggle('fast');
+  
+});
+
+$('#button-card-4').click(function(){
+  $('#par-4').toggle();
+  
+});</pre>
+
+<h2>jquery effects challenge 3 </h2>
+<p>.slideToggle()</p>
+<pre>$('#button-card-1').click(function(){
+  $('#par-1').slideToggle(750);
+});
+
+$('#button-card-2').click(function(){
+  $('#par-2').slideToggle(1000);
+});
+
+$('#button-card-3').click(function(){
+  $('#par-3').slideToggle();
+});</pre>
+
+<h2>jquery effects challenge 4 </h2>
+<p>show hide slide</p>
+<p>.show(1000)</p>
+
+<pre>
+$('#button-card-1').mouseenter(function(){
+  $('#par-1').fadeTo(200, 0.5);
+  
+});
+
+$('#button-card-1').mouseleave(function(){
+  $('#par-1').fadeTo(200,1);
+  
+});
+
+
+$('#button-card-2').mouseenter(function(){
+  $('#par-2').fadeTo(1000,0.5);
+
+});
+
+$('#button-card-2').mouseleave(function(){
+  $('#par-2').fadeTo(1000,1);
+  
+});
+</pre>
+
+<h2>method chaining</h2>
+<p>getter and setter</p>
+<pre>$("#myButton").removeClass("border").addClass("blueBox");</pre>
+
+<iframe width="935" height="526" src="https://www.youtube.com/embed/eP2OKWAQ4Vc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>Method chaining
+A wonderful aspect of jQuery is the fact that most of the methods return an object that you can then use to call another method.
+This allows you to do command chaining where you can perform multiple methods on the same set of elements.
+This can be very useful and can save a lot of time.
+So let's look at how this might be done.
+If we want to remove a class from an element and add a different class, we would normally do the following.
+What we can do here is chain these two together.
+Chaining also works with events.
+So let's have a look at an example with events.
+Here, we have the slideUp() followed by the slideDown() chained together.
+An element's attributes can contain useful information, so it's important to be able to access and manipulate them.
+The attr() function acts both as a getter and a setter.
+As with the CSS function, we can query with one parameter, here we're looking for an href, and update the attribute for the second parameter, in this case, to example.com
+</p>
+
+<h2>method chaining challenge one</h2>
+<p>how do we use it</p>
+<p>$("#myButton").removeClass("border").addClass("blueBox");</p>
+
+<p>Method Chaining With jQuery, means you can chain together many actions/methods.
+Chaining gives us the ability to run multiple jQuery methods on a single element while using only a single statement.</p>
+
+<pre>$('p').removeClass("make-border").addClass("make-red");
+</pre>
+
+<p>This can also be written like shown below, and is still considered valid format, but for testing stick to using the single line version.
+</p>
+
+<pre>$('p').removeClass("make-border")
+        .addClass("make-red");
+</pre>
+
+<h2>method chaining challenge 1 </h2>
+
+<h3>js</h3>
+<pre>$('button').mouseenter(function(){
+  $('button').removeClass('make-red').addClass('make-border');
+});
+
+$('button').mouseleave(function(){
+  $('button').removeClass('make-border').addClass('make-red');
+});</pre>
+
+<h3>.css</h3>
+<pre>/* Create the make-red rule here */
+.make-red {
+  background-color: red;
+}
+
+/* Create the make-border rule here */
+.make-border {
+  border:  2px solid black;
+}</pre>
+
+<h2>Method Chaining challenge 2 </h2>
+<pre>
+$('#button-card-1').click(function(){
+  $('#par-1').hide(2000).show(2000);
+  
+});
+
+
+$('#button-card-2').click(function(){
+  $('#par-2').fadeOut(1000).fadeIn(1000);
+  
+});</pre>
+
+<h2>the importance of 'this'</h2>
+<iframe width="935" height="526" src="https://www.youtube.com/embed/VKOh6mHmNwM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>lesson:  </p>
+
+<h2>this challenge 1 </h2>
+<p>.this keyword refers to the actual click you click on, not everything, so not every p or h1 etc. it will just ask on the .this one you click on. think simple on this!</p>
+<pre>$('p').click(fn(){$(this).show('slow');}); 'this' refers to the <p> the user has clicked</pre>
+
+<pre>$('p').click(function(){
+  $(this).text('Changed only the text for this paragraph');
+});
+
+$('.card').mouseenter(function(){
+  $(this).fadeTo(2000,0.2).fadeTo(2000,1);
+});</pre>
+
+
+<h2><h2>the importance of 'this' Challenge 2</h2></h2>
+<pre>$('.module-nav').on('click', function(){
+  let allModulesCardsSelector = '.card';
+  let thisModuleCardsSelector = "." + this.id + "-card";
+  $(allModulesCardsSelector).removeClass('card-highlight');
+  $(thisModuleCardsSelector).addClass('card-highlight');
+});
+</pre>
+
+<h2>travering Mt.DOM </h2>
+
+<iframe width="831" height="467" src="https://www.youtube.com/embed/zQ_G9hMQy_M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>traversing the dom tree</p>
+
+<iframe width="831" height="467" src="https://www.youtube.com/embed/3lT9P7TCRzo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>the syntax for getting the parent </p>
+<pre> $('#thebutton').parent();</pre>
+<p>You can obtain the direct parent element of a selected element by calling a parent() method.
+This method traverses up a single, or parent level, of the DOM tree.</p>
+
+
+<p>Traversing down the DOM tree with the children function
+The children() function returns all direct child elements of a given element.
+This method only traverses down a single level.
+So the syntax here would be $, and then, say, div, for example, in parenthesis in quotes, .children.
+If you wanted to return a specific child element, for example, paragraphs, then you would put "p" in the children method in quotes.
+Now go ahead and try the challenges.</p>
+
+<pre> $('div').children();</pre> 
+
+<h2> Traversing Up And Down The DOM Tree - Challenge 1
+</h2>
+<h3>solution</h3>
+<pre>$('p').click(function(){
+  $(this).children("a").css('background-color','yellow');
+});</pre>
+
+
+<h2>Traversing sideways</h2>
+<iframe width="1007" height="566" src="https://www.youtube.com/embed/xVdFHVeegz8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<pre> $('div').next();
+$('div').prev();
+$('div').toggleClass('bigBorder');
+</pre>
+
+<h2>solution traversing sideways challenge 1 </h2>
+<pre>$("button").click(function(){
+  $(this).next().slideToggle('slow');
+});</pre>
+
+<h2>traversing sideways challenge 2</h2>
+<p>Within the button click event handler, using the this keyword and the relationship between the button and the <p> element, display the p element by clicking on the button, and using .slideDown() 
+Within the h2 click event handler, using the this keyword and the relationship between the h2 element and the <p> element, hide the p element by clicking on the h2 element, and using .slideUp() 
+</p>
+
+<pre>$('button').click(function() {
+	$(this).prev().slideDown();
+});
+$('h2').click(function() {
+	$(this).next().children('p').slideUp();
+});</pre>
+
+
+<h2>other traversing methods</h2>
+<iframe width="1007" height="566" src="https://www.youtube.com/embed/UcGeFsqiIK0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+ 
+ <img src="images/traversing2.png" alt="traversing">
+
+<p> look up variables and resets on jquery</p>
+
+<h3>example of reset in action</h3>
+<pre> 
+
+var panelColor =$(this).css('background-color');
+console.log(panelColor);
+$('.resetButton').css('background-color', panelColor);
+
+
+</pre>
+</body>
+
