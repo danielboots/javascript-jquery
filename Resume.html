@@ -241,6 +241,78 @@ By using template literals to render the information to the page
 
 <p> .map returns an array  </p>
 
+<h2>Bug fixing</h2>
+
+<iframe width="1007" height="566" src="https://www.youtube.com/embed/pNX06jrfLdI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+
+<h2>api throttling</h2>
+<p>Prevents us from making too many API calls
+By staying within the request quota!
+
+
+</p>
+
+<iframe width="1007" height="566" src="https://www.youtube.com/embed/A8MWcD02iNk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>We can't do too much about the fact that GitHub throttles their API, but what we can do is present a nicer and friendlier error message to our users when this happens.
+So in our fetchGitHubInformation() function, after we check for status of 404, we're now going to put an else if clause and check for the status of 403.</p>
+
+
+<h2> Signing Up To EmailJS
+</h2>
+
+<p>A service that will send emails on our behalf without needing our backend!</p>
+<p>how?</p>
+<p>By using their JS Software Development Kit (SDK)
+
+</p>
+
+<iframe width="1007" height="566" src="https://www.youtube.com/embed/bYHA5fTF2Xk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<h2> Creating An Email Template
+</h2>
+
+<p>inside of emailJS</p>
+<p>By creating one from the email template page
+
+</p>
+
+<h2>connecting emailJS using their SDK</h2>
+<iframe width="1007" height="566" src="https://www.youtube.com/embed/0Qs7RbaCwB4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<h2> Creating Email Template Parameters
+</h2>
+<p>They allow us to pass in information to the email from our form
+By updating the email template
+
+
+</p>
+
+<h2> Preparing The Contact.Html File
+
+</h2>
+
+<iframe width="1007" height="566" src="https://www.youtube.com/embed/6ikltjDtgeQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<h2> Sending Emails!
+</h2>
+
+<p>Allows us to pass parameters from our form the EmailJS service
+by referencing the SDK
+</p>
+
+<p>EmailJS has been updated since this video was created. As a result, please note the following code adjustment:
+At the end of the sendMail() function, just before the final, closing curly brace, add the following code:
+return false;
+This is to prevent the page from refreshing when you submit your form. We have updated the source code in the repository below this video.</p>
+
+<iframe width="823" height="463" src="https://www.youtube.com/embed/KaAeh4Risrc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+
+
+
 
 
 
