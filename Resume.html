@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head> 
+	<meta charset="UTF-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Javascript Notes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+ 
+<body>   
+
+<h1>Putting it all together - extneding the rosie resume project</h1>
+<p>Notes</p>
+<iframe width="1007" height="566" src="https://www.youtube.com/embed/kMVYcLy-EaA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+<p>The learning outcomes for this module are using JavaScript and jQuery, both to manipulate the DOM and to make Ajax calls to the Google Maps, GitHub, and email service APIs.
+</p>
+
+
+<h2> Adding The Map Element (Bootstrap 4)
+</h2>
+<p>An element that we'll use to render a Google Map
+Acts as a placeholder for the map
+By simply giving an element an id to be targeted
+
+
+
+</p>
+
+<iframe width="1007" height="566" src="https://www.youtube.com/embed/rDRqqkgDsJg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+<h2>getting the API Key</h2>
+
+<iframe width="1007" height="566" src="https://www.youtube.com/embed/o6a23maYAXA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>javascript google maps API </p>
+
+<h2> Referencing The JS Files
+</h2>
+
+<p>The Google JS library for working with Google Maps
+Gives us all of the functionality required to start rendering maps
+
+By referencing it in our HTML code
+
+
+</p>
+
+<iframe width="1007" height="566" src="https://www.youtube.com/embed/3HcVxOO6Vrg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+<p>So back over on the Google Maps API page, I'm going to click on the "Create Marker Clusters" tutorial.</p>
+
+
+<a href="https://developers.google.com/maps/documentation/javascript/overview#maps_map_simple-javascript">IMPLEMENTING MAPS TUTORIAL </a>
+
+
+<h2>referencing the JS files</h2>
+
+<iframe width="1007" height="566" src="https://www.youtube.com/embed/3HcVxOO6Vrg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h2>rendering the map</h2>
+<iframe width="1007" height="566" src="https://www.youtube.com/embed/XYFyb3S4oRc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>The code needed to draw the map on the page
+Renders the map on the page
+
+By utilizing the JS files that we referenced earlier
+
+</p>
+
+<pre> 
+ 
+function initMap(){
+let map = new google.maps.Map(document.getElementById('map')' {
+zoom: 3,
+center: {
+    lat: 46.619261,
+    lng: -33.134766
+
+
+
+}
+
+});
+
+</pre>
+<p>Note</p>
+<p>If you're having trouble rendering your map, add the following style to your style.css file:
+
+</p>
+<pre>div#map {min-height: 360px;}
+</pre>
+
+
+<h2> Adding Markers To The Map
+
+</h2>
+<p>Marks locations on the map
+By defining some locations and creating a new marker for each location
+
+</p>
+<iframe width="1007" height="566" src="https://www.youtube.com/embed/ElYREKxG1Gk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p> markers and clusters: create </p>
+
+<pre>
+let labels = 'ABCDEFG'
+
+let locations = [
+{lat: 40.565654, lng: -73.65656},
+{lat: 40.565654, lng: -73.65656},
+{lat: 40.565654, lng: -73.65656},
+];
+
+let markers = locations.map (function (location, i) {
+    return new google.mapsMarker({
+        position: lovation, 
+        label: labels[i % labels.length]
+
+    });
+});
+
+</pre>
+
+<h2> Moving The Code Into It's Own Script
+</h2>
+<p>moving this scrupt to its own file.... 
+
+<!-- By putting it in its file and then referencing it using the <script> tag in HTML -->
+
+</p>
+
+<iframe width="1007" height="566" src="https://www.youtube.com/embed/Lb2nRmEsm6U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<h2>Push to git</h2>
+<iframe width="1007" height="566" src="https://www.youtube.com/embed/fvZkKvL4uqc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<pre> 
+git status 
+git add . 
+git commit -m" note for commit"
+git push 
+</pre>
+
+
+<h2> GitHub Form (Bootstrap 4)
+
+</h2>
+<iframe width="1007" height="566" src="https://www.youtube.com/embed/3xk8SH56dac" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>a form that will display git hub </p>
+<p>At the moment, you can see we have this field. It has the default value of octocat.
+So in our coming videos, we're going to write some JavaScript code that will retrieve user information from GitHub and display it like we showed in our example at the beginning</p>
+
+<h2> Initial Data Retrieval Setup
+</h2>
+<p>using the <pre>fetchGitHubInformation
+
+</pre>function</p>
+<p>will respond to a users input by implementing the function</p>
+<iframe width="1007" height="566" src="https://www.youtube.com/embed/NO8_XiR0000" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<pre>function fetchGitHubInformation(event) {
+
+    var username = $("#gh-username").val();
+    if (!username) {
+        $("#gh-user-data").html(`<h2>Please enter a GitHub username</h2>`);
+        return;
+    }
+
+    $("#gh-user-data").html(
+        `<div id="loader">
+            <img src="assets/css/loader.gif" alt="loading..." />
+        </div>`);
+}</pre>
+
+
+
+<h2> Making Promises
+</h2>
+<pre>$.when().then()
+
+</pre>
+
+<p>what are promises? Promises to complete some action
+By using the $.when().then() methods
+
+
+</p>
+
+<iframe width="1007" height="566" src="https://www.youtube.com/embed/3uEJoW9ghLY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<a href="https://www.youtube.com/watch?v=DHvZLI7Db8E">PROMISES </a>
+
+<pre> 
+$.when(
+        $.getJSON(`https://api.github.com/users/${username}`)
+    ).then(
+        function(response) {
+            var userData = response;
+            $("#gh-user-data").html(userInformationHTML(userData));
+        },
+        function(errorResponse) {
+            if (errorResponse.status === 404) {
+                $("#gh-user-data").html(
+                    `<h2>No info found for user ${username}</h2>`);
+            } else {
+                console.log(errorResponse);
+                $("#gh-user-data").html(
+                    `<h2>Error: ${errorResponse.responseJSON.message}</h2>`);
+            }
+        });
+}
+
+    </pre>
+
+
+<h2>rendering user data</h2>
+<p>allows us to render our HTML code to the page by injecting our data into a template literal</p>
+
+<iframe width="1590" height="1440" src="https://www.youtube.com/embed/8tbwa82R8jE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<h3> Git hub api</h3>
+<a href="https://developer.github.com/v3/users/">GITHUB USERS API DOCS</a>
+
+<h2>getting the github repo data</h2>
+<iframe width="1007" height="566" src="https://www.youtube.com/embed/fsRTN4ZMbCc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<h2> Rendering Repo Data
+</h2>
+<p>Contains a list of repositories for a user
+By using template literals to render the information to the page
+
+</p>
+
+<iframe width="1007" height="566" src="https://www.youtube.com/embed/OEEb_LXSXh4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<a href="https://github.com/Code-Institute-Solutions/InteractiveFrontendDevelopment-Resume/blob/master/02-TheGitHubAPI/06-rendering_repo_data/assets/js/github-information.js">Github code for repos</a>
+
+<p> .map returns an array  </p>
+
+
+
+
+</body>
